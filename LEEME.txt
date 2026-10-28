@@ -1,0 +1,72 @@
+ALT-F4 GAMES — v0.0.1
+===================
+
+Aplicación de escritorio para Windows (64 bits). No necesita instalación
+ni conexión a internet: es un único .exe.
+
+CÓMO USARLA
+-----------
+Doble clic en AltF4Games.exe. La primera vez tarda unos segundos porque
+descomprime el runtime en la carpeta temporal del sistema.
+
+Barra superior (diagonal):
+  - Inicio      Vuelve a los módulos del juego / submenu Salir (cierra y mata el proceso)
+  - Changelog   Historial de cambios de la app
+  - Logs        Registros de crashes
+  - Opciones    Configuración de la app (Inicio con Windows)
+
+Elige una pestaña arriba:
+  - Timers      cooldowns de trabajos, robos y esperas (con aviso sonoro)
+  - Crosshair   editor de mira con prueba a pantalla completa
+  - Macros      Auto Minero, Auto Pesca y tus comandos guardados
+
+AUTOMATIZACIONES (AUTO MINERO / AUTO PESCA)
+-------------------------------------------
+1. Abre FiveM y deja el juego en primer plano.
+2. En la pestaña Macros pulsa "Iniciar" en la automatización.
+3. Vuelve al juego. Se pausa sola si cambias de ventana.
+4. F11 la detiene al instante.
+
+  - Auto Minero: detecta la luz de la roca y hace clic izquierdo.
+    Se para sola tras 100 segundos sin ver roca.
+  - Auto Pesca: detecta cuando pica, sigue al pez con el clic y
+    relanza con la tecla 1 tras cada captura.
+
+Las coordenadas originales son de 1920x1080 y se escalan a tu resolución.
+Mientras corre, el ratón lo controla la macro: no lo muevas.
+Es automatización externa (no inyecta nada en el juego), pero algunos
+servidores la prohíben: úsala solo donde esté permitido.
+
+La barra lateral muestra "FIVEM DETECTADO" en cuanto abres FiveM
+(reconoce FiveM.exe y procesos FiveM_GTAProcess.exe).
+
+TUS DATOS
+---------
+Se guardan SOLO en tu equipo, en:
+  %APPDATA%\Alt-F4 Games\
+    - data.json      Datos de la app
+    - settings.json  Configuración (ventana, última pestaña, inicio con Windows)
+    - logs\          Crash logs (crash-YYYYMMDD-HHmmss.log)
+
+El botón "Abrir carpeta de datos" de la barra lateral te lleva ahí.
+"Exportar datos" genera una copia JSON.
+"Logs" en la barra superior te permite verlos o abrir la carpeta.
+
+SI EL ANTIVIRUS LO BLOQUEA
+--------------------------
+Es un FALSO POSITIVO habitual: el .exe no está firmado digitalmente y lleva
+el runtime de .NET comprimido dentro, lo que a algunos antivirus (Malwarebytes,
+Windows Defender) les parece sospechoso.
+
+Solución: añade una exclusión para esta carpeta en tu antivirus, o elige
+"Permitir / Restaurar" cuando avise. En Windows también puede aparecer
+SmartScreen: "Más información" > "Ejecutar de todas formas".
+
+NOTAS
+-----
+- No inyecta nada en FiveM: nada de memoria ni hooks; las automatizaciones
+  leen píxeles de la pantalla y simulan ratón/teclado desde fuera.
+- No hay red, ni cuentas, ni telemetría.
+- Instancia única: si ya está abierta, trae la ventana al frente.
+- Si un servidor prohíbe overlays o automatización, no lo uses allí.
+- El código fuente completo está en la carpeta padre del proyecto.
